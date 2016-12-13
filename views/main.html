@@ -1,0 +1,32 @@
+<!-- <div ng-controller="mainController">   -->
+    <div class="page-header" >
+        <h1> Employees list </h1>
+    </div>
+    <div class="panel">
+            <div class="form-group">
+                <div class="col-md-8">
+                    <button class="btn btn-default" ui-sref="add" ">Добавить</button>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Должность</th>
+                    <th>Телефон</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="emp in list">
+                    <td>{{emp.name}}</td>
+                    <td>{{emp.surname}}</td>
+                    <td>{{emp.profession}}</td>
+                    <td>{{emp.phone}}</td>
+                    <td><input type="button" value="Редактировать" ui-sref="edit({id:emp.id})"/></td>
+                    <td><input type="button" value="Удалить" ng-click = "delEmp(emp)"/></td>
+                </tr>
+            </tbody>
+        </table>
+<!-- </div>

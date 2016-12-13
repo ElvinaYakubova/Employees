@@ -1,0 +1,60 @@
+<div class="page-header" >
+    <h1>Add Employee</h1>
+</div>
+<div ng-controller="addController"> 
+    <form name = "addForm">
+         <div class="form-inline">
+            <div class="form-group">
+                <div class="col-md-8">
+                    <label for="addName">Введите имя</label>
+                    <input id="addName" ng-model="addInf.name" name = "addInf" ng-minlength = "3" ng-maxlength = "20" ng-pattern="/[А-Я][а-я]{2,20}/" required placeholder="Имя" />
+                    <div ng-messages="addForm.addInf.$error" style="color:maroon" role="alert">
+                        <div ng-message="required">Вы не заполнили поле</div>
+                        <div ng-message="minlength">Слишком короткое имя</div>
+                        <div ng-message="maxlength">Слишком длинное имя</div>
+                        <div ng-message="pattern">Неправильный формат ввода</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-8">
+                    <label for="addSurname">Введите фамилию</label>
+                    <input id="addSurname" name = "addSurname" ng-model="addInf.surname" ng-minlength = "3" ng-maxlength = "20" ng-pattern="/[А-Я][а-я]{2,20}/" required placeholder="Фамилия" />
+                    <div ng-messages="addForm.addSurname.$error" style="color:maroon" role="alert">
+                        <div ng-message="required">Вы не заполнили поле</div>
+                        <div ng-message="minlength">Слишком короткая фамилия</div>
+                        <div ng-message="maxlength">Слишком длинная фамилия</div>
+                        <div ng-message="pattern">Неправильный формат ввода</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-8">
+                    <label for="addProfession">Введите должность</label>
+                    <input id="addProfession" name =  "addProfession" ng-model="addInf.profession"  ng-minlength = "3" ng-maxlength = "20"  required placeholder="Должность" />
+                    <div ng-messages="addForm.addProfession.$error" style="color:maroon" role="alert">
+                        <div ng-message="required">Вы не заполнили поле</div>
+                        <div ng-message="minlength">Слишком короткое значение </div>
+                        <div ng-message="maxlength">Слишком длинное значение</div>
+                        <div ng-message="pattern">Неправильный формат ввода</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-8">
+                    <label for="addPhone">Введите телефон</label>
+                    <input id="addPhone" name = "addPhone" ng-model="addInf.phone" ng-pattern="/\+\d{11}/" ng-minlength = "12" ng-maxlength = "12" required placeholder="Телефон" />
+                     <div ng-messages="addForm.addPhone.$error" style="color:maroon" role="alert">
+                        <div ng-message="required">Вы не заполнили поле</div>
+                        <div ng-message="minlength">Слишком короткое значение </div>
+                        <div ng-message="maxlength">Слишком длинное значение</div>
+                        <div ng-message="pattern">Неправильный формат ввода</div>
+                    </div>
+                </div>
+            </div>
+            <button  type="submit" class="btn btn-default" ng-click="addEmp(addInf, addForm)">Добавить</button>
+        </div>
+    </form>
+</div>
+
+    
