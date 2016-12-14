@@ -30,7 +30,8 @@ myApp.factory('dataFactory', ['$http', '$q', function($http, $q) {
     }
 
     dataFactory.addEmp = function(inf) {
-        inf.id = dataFactory.data.length + 1;
+        if (dataFactory.data.length != 0) inf.id = parseInt(dataFactory.data[dataFactory.data.length-1].id)+1;
+        else inf.id = 1;
         dataFactory.data.push(inf);
     }
 

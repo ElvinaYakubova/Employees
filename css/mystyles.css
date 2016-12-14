@@ -2,8 +2,23 @@ body {
 	background:#F7F7FA;
 	font-family: Verdana;
 	font-size: 14px;
+	/*width: 90%;*/
+	/*margin: auto;*/
 }
 
 .btn{
 	margin-top: 20px;
+}
+
+thead tr th a {
+	color: black;
+}
+
+thead tr th a:active {
+	color: black;
+}
+
+.input-group {
+	display: block;
+	width: 30%;
 }
