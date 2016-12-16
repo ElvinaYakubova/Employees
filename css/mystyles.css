@@ -22,3 +22,7 @@ thead tr th a:active {
 	display: block;
 	width: 30%;
 }
+
+.highlighted { 
+	background: yellow 
+}

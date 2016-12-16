@@ -1,4 +1,4 @@
-user.controller("mainController", function ($scope, dataFactory, $q) {
+user.controller("mainController", function ($scope, dataFactory, $q, $filter, $sce) {
     
     $scope.list = dataFactory.data;
     $scope.sortType = 'name';
@@ -7,17 +7,20 @@ user.controller("mainController", function ($scope, dataFactory, $q) {
     $scope.currentPage = 0;
     $scope.empPerPage = 2;
 
+    $scope.len = dataFactory.data.length;
+
     $scope.firstPage = function() {
         return $scope.currentPage == 0;
     };
 
     $scope.lastPage = function() {
-        var lastPageNum = Math.ceil(dataFactory.data.length/$scope.empPerPage - 1);
+        var lastPageNum = Math.ceil($scope.len/$scope.empPerPage - 1);
         return $scope.currentPage == lastPageNum;
     };
 
     $scope.cntOfPages = function() {
-        return Math.ceil(dataFactory.data.length/$scope.empPerPage);
+        if ($scope.len == 0) return 1;
+        return Math.ceil($scope.len/$scope.empPerPage);
     };
 	
     $scope.pageBack = function() {
@@ -27,6 +30,12 @@ user.controller("mainController", function ($scope, dataFactory, $q) {
     $scope.pageNext =  function() {
         $scope.currentPage++;
     };
+
+    $scope.updatePager = function() {
+        var  filtered = $filter('filter')($scope.list, $scope.searchText);
+        $scope.len = filtered.length;
+        $scope.currentPage = 0;
+    }
 
     $scope.start = function() {
         return $scope.currentPage*$scope.empPerPage;
@@ -42,5 +51,7 @@ user.controller("mainController", function ($scope, dataFactory, $q) {
             dataFactory.delEmp(emp);
         }
     };
+
+    
  });
 
