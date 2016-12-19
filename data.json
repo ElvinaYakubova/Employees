@@ -1,10 +1,16 @@
 {
  "employees": [
-        { "id": "1", "surname": "Иванов", "name": "Иван", "profession": "секретарь", "phone": "+79781111111" },
-        { "id": "2", "surname": "Петров", "name": "Александр", "profession": "менеджер", "phone": "+79781111112" },
-        { "id": "3", "surname": "Сидоров", "name": "Олег", "profession": "директор", "phone": "+79781115110" },
-        { "id": "4", "surname": "Сидоров", "name": "Петр", "profession": "секретарь", "phone": "+79781341110" },
-        { "id": "5", "surname": "Сидоров", "name": "Иван", "profession": "менеджер", "phone": "+79781333110" },
-        { "id": "6", "surname": "Сидоров", "name": "Александр", "profession": "менеджер", "phone": "+79781111432" }
-    ]
+        { "id": "1", "surname": "Иванов", "name": "Иван", "profession": "врач", "phone": "+79781111111", "gender": "Male" },
+        { "id": "2", "surname": "Петров", "name": "Александр", "profession": "менеджер", "phone": "+79781111112", "gender": "Male" },
+        { "id": "3", "surname": "Сидоров", "name": "Олег", "profession": "директор", "phone": "+79781115110", "gender": "Male" },
+        { "id": "4", "surname": "Сидоров", "name": "Петр", "profession": "строитель", "phone": "+79781341110", "gender": "Male" },
+        { "id": "5", "surname": "Петрова", "name": "Ольга", "profession": "секретарь", "phone": "+79781333110", "gender": "Female" },
+        { "id": "6", "surname": "Сидорова", "name": "Александра", "profession": "медсестра", "phone": "+79781111432", "gender": "Female" }
+    ],
+ "profGender": {
+ 	"Male": ["врач", "менеджер","директор", "строитель"],
+ 	"Female": ["секретарь" ,"медсестра"]
+ }
 }
+ 	
+

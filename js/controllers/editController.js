@@ -3,6 +3,9 @@ user.controller("editController", function editController($scope, $location, dat
     
     $scope.editInf = angular.copy(dataFactory.getEmp($scope.id));
 
+    $scope.maleProf = dataFactory.prof.Male;
+    $scope.femaleProf = dataFactory.prof.Female;
+
     $scope.editEmp = function(editInf, editForm) {
 		if(editForm.$valid){
 			toastr.success('Запись успешно обновлена');

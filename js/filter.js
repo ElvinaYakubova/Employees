@@ -10,7 +10,7 @@ user.filter('highlight', function($sce) {
         if (phrase) {
         	text = text.replace(new RegExp('('+phrase+')', 'gi'), '<span class="highlighted">$1</span>');
         }
-        return $sce.trustAsHtml(text)
+        return $sce.trustAsHtml(text);
     }
 });
 

@@ -5,7 +5,12 @@
     <div class="panel">
             <div class="form-group">
                 <div class="col-md-8">
-                    <button class="btn btn-default" ui-sref="add">Добавить</button>
+                    <button class="btn btn-default" ui-sref="add">Добавить Сотрудника</button>
+                </div>
+            </div> 
+             <div class="form-group">
+                <div class="col-md-8">
+                    <button class="btn btn-default" ui-sref="addprof">Добавить Должность</button>
                 </div>
             </div> 
             <div class="form-group">
@@ -51,11 +56,11 @@
                 </tr>
             </tbody> 
         </table>
-        <div class="form-group">
-                <div class="col-md-8">
-                    <button class="btn btn-default" ng-disabled="firstPage()" ng-click = "pageBack()">Назад</button>
-                    <span>{{currentPage+1}}/{{cntOfPages()}}</span>
-                    <button class="btn btn-default" ng-disabled = "lastPage()" ng-click = "pageNext()" >Вперед</button>
-                </div>
-            </div> 
+        <div class="form-group"  ng-hide = "cntOfPages() == 0">
+            <div class="col-md-8">
+                <button class="btn btn-default" ng-disabled="firstPage()" ng-click = "pageBack()">Назад</button>
+                <span>{{currentPage+1}}/{{cntOfPages()}}</span>
+                <button class="btn btn-default" ng-disabled = "lastPage()" ng-click = "pageNext()" >Вперед</button>
+            </div>
+        </div> 
 <!-- </div>

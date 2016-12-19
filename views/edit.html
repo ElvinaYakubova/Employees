@@ -28,7 +28,25 @@
                     </div>
                 </div>
             </div>
+            <div class = "form-group">
+                <div class="col-md-8">
+                    <label for="editGender" >Выберете пол</label>
+                    <select  id ="editGender" ng-model="editInf.gender">
+                      <option ng-selected="editInf.gender=='Male'" value = "Male">Мужчина</option>
+                      <option ng-selected="editInf.gender=='Female'" value = "Female">Женщина</option>
+                    </select>
+                </div>
+            </div>
             <div class="form-group">
+                <div class="col-md-8">
+                    <label for="editProfession">Выберете профессию</label>
+                    <select id ="editProfession" ng-model="editInf.profession">
+                        <option  ng-if="editInf.gender == 'Male'"  ng-repeat="profession in maleProf">{{profession}}</option>
+                        <option  ng-if="editInf.gender == 'Female'" ng-repeat="profession in femaleProf">{{profession}}</option>
+                    </select>
+                </div>
+            </div>
+<!--             <div class="form-group">
                 <div class="col-md-8">
                     <label for="editProfession">Введите должность</label>
                     <input type = "text" name = "editProfession" id="editProfession" ng-model="editInf.profession"  ng-minlength = "3" ng-maxlength = "20"  required placeholder="Должность" />
@@ -39,7 +57,7 @@
                         <div ng-message="pattern">Неверный формат ввода</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="form-group">
                 <div class="col-md-8">
                     <label for="editPhone">Введите телефон</label>

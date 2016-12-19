@@ -11,6 +11,11 @@ var user = angular.module('user', ['ui.router', 'ngMessages'])
             templateUrl: 'views/add.html',
             controller: 'addController'
         })
+        .state('addprof', {
+            url: '/addprof',
+            templateUrl: 'views/addProf.html',
+            controller: 'addController'
+        })
         .state('edit', {
             url: '/edit/:id',
             templateUrl: 'views/edit.html',
@@ -18,3 +23,4 @@ var user = angular.module('user', ['ui.router', 'ngMessages'])
         });
         $urlRouterProvider.otherwise('/main');
 });
+

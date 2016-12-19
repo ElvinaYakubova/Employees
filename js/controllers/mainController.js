@@ -1,6 +1,7 @@
 user.controller("mainController", function ($scope, dataFactory, $q, $filter, $sce) {
     
     $scope.list = dataFactory.data;
+
     $scope.sortType = 'name';
     $scope.sortReverse = false;
 
@@ -19,8 +20,9 @@ user.controller("mainController", function ($scope, dataFactory, $q, $filter, $s
     };
 
     $scope.cntOfPages = function() {
-        if ($scope.len == 0) return 1;
-        return Math.ceil($scope.len/$scope.empPerPage);
+        var answ = Math.ceil($scope.len/$scope.empPerPage);
+        if ($scope.currentPage+1 > answ) $scope.currentPage--;
+        return answ;
     };
 	
     $scope.pageBack = function() {
@@ -49,6 +51,7 @@ user.controller("mainController", function ($scope, dataFactory, $q, $filter, $s
     	var r = confirm("Вы уверены?");
 		if (r == true) {
             dataFactory.delEmp(emp);
+            $scope.len = dataFactory.data.length;
         }
     };
 

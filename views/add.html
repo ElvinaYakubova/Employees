@@ -7,8 +7,8 @@
             <div class="form-group">
                 <div class="col-md-8">
                     <label for="addName">Введите имя</label>
-                    <input id="addName" ng-model="addInf.name" name = "addInf" ng-minlength = "3" ng-maxlength = "20" ng-pattern="/[А-Я][а-я]{2,20}/" required placeholder="Имя" />
-                    <div ng-messages="addForm.addInf.$error" style="color:maroon" role="alert">
+                    <input id="addName" ng-model="addInf.name" name = "addName" ng-minlength = "3" ng-maxlength = "20" ng-pattern="/[А-Я][а-я]{2,20}/" required placeholder="Имя" />
+                    <div ng-messages="addForm.addName.$error" style="color:maroon" role="alert">
                         <div ng-message="required">Вы не заполнили поле</div>
                         <div ng-message="minlength">Слишком короткое имя</div>
                         <div ng-message="maxlength">Слишком длинное имя</div>
@@ -30,19 +30,28 @@
             </div>
             <div class = "form-group">
                 <div class="col-md-8">
-                    <label for="selGender">Выберете пол</label>
-                    <select>
-                      <option>Мужчина</option>
-                      <option>Женщина</option>
+                    <label for="addGender" >Выберете пол</label>
+                    <select  id ="addGender" name = "addGender" ng-model="addInf.gender" required>
+                      <option value = "Male">Мужчина</option>
+                      <option value = "Female">Женщина</option>
                     </select>
+                    <div ng-messages="addForm.addGender.$error" style="color:maroon" role="alert">
+                        <div ng-message="required">Вы не заполнили поле</div>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-8">
-                    <label for="selProfession">Выберете профессию</label>
-                    <select>
-                    <option ng-repeat="emp in list">{{emp.profession}}</option>
-                    </select>
+                    <label for="addProfession">Выберете профессию</label>
+                    <select id ="addProfession" name = "addProfession" ng-model="addInf.profession" required>
+                        <option ng-if="addInf.gender == 'Male'" ng-repeat="profession in maleProf">{{profession}}</option>
+                        <option  ng-if="addInf.gender == 'Female'" ng-repeat="profession in femaleProf">{{profession}}</option>
+                    </select> 
+                    <div ng-messages="addForm.addProfession.$error" style="color:maroon" role="alert">
+                        <div ng-message="required">Вы не заполнили поле</div>
+                    </div>
+                </div>
+            </div>
                     <!-- <label for="addProfession">Введите должность</label>
                     <input id="addProfession" name =  "addProfession" ng-model="addInf.profession"  ng-minlength = "3" ng-maxlength = "20"  required placeholder="Должность" />
                     <div ng-messages="addForm.addProfession.$error" style="color:maroon" role="alert">
@@ -51,8 +60,7 @@
                         <div ng-message="maxlength">Слишком длинное значение</div>
                         <div ng-message="pattern">Неправильный формат ввода</div>
                     </div> -->
-                </div>
-            </div>
+                
             <div class="form-group">
                 <div class="col-md-8">
                     <label for="addPhone">Введите телефон</label>

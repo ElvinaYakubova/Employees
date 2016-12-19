@@ -2,12 +2,16 @@ myApp.factory('dataFactory', ['$http', '$q', function($http, $q) {
     
     var dataFactory = {}; 
 
-    var obj = [];
+    var empdata = [];
+    var profdata = [];
 
+    
     $http.get('data.json').success(function(data) {
-        angular.merge(obj,data.employees);
+        angular.merge(empdata,data.employees);
+        angular.merge(profdata,data.profGender);
     });  
-    dataFactory.data = obj;
+    dataFactory.data = empdata;
+    dataFactory.prof = profdata;
 
     dataFactory.getEmp = function(id) {
     	var res = -1;
@@ -40,7 +44,11 @@ myApp.factory('dataFactory', ['$http', '$q', function($http, $q) {
         dataFactory.data.splice($res,1);
     }
 
-    
+    dataFactory.addProf = function(inf) {
+        if(inf.gender == "Male") dataFactory.prof.Male.push(inf.profession);
+        else dataFactory.prof.Female.push(inf.profession);
+    }
+
     return dataFactory;
 }]);
 
