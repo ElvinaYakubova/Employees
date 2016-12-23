@@ -10,13 +10,13 @@ user.controller("addController", function addController($scope, $location, dataF
 			$location.path('/main');
 		}
 	};
-	$scope.addProf = function(addProf, addProfForm) {
-		if(addProfForm.$valid) {
-			toastr.success('Запись успешно добавлена');
-			dataFactory.addProf(addProf);
-			$location.path('/main');
-		}
-	}
+	// $scope.addProf = function(addProf, addProfForm) {
+	// 	if(addProfForm.$valid) {
+	// 		toastr.success('Запись успешно добавлена');
+	// 		dataFactory.addProf(addProf);
+	// 		$location.path('/main');
+	// 	}
+	// }
 
 });
 
